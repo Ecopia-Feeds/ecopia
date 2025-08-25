@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@700&family=Inter:wght@0,400;0,500;0,600;0,7001,400;&display=swap');
+@import "tailwindcss";
+
+/**
+  * A catch-all path to Django template files, JavaScript, and Python files
+  * that contain Tailwind CSS classes and will be scanned by Tailwind to generate the final CSS file.
+  *
+  * If your final CSS file is not being updated after code changes, you may want to broaden or narrow
+  * the scope of this path.
+  */
+@source "../../../**/*.{html,py,js}";
+@theme {
+    --color-primary-green: #304A32;
+    --color-primary-light-green: #7DA698;
+    --color-primary-dark-green: #243824;
+    --color-secondary-green: #F0F7F7;
+    --color-secondary-white: #FFFFFF;
+    --color-accent: #643000;
+    --color-success: #4A7B5D;
+    --color-warning: #C89B3C;
+    --color-error: #8C2F2F;
+    --color-base-content: #243824;
+
+    --font-heading: "DM Sans", sans-serif;
+    --font-body: "Inter", sans-serif;
+}
+body {
+    @apply font-body;
+}
+
+/* * Now, create your reusable heading styles outside the @theme block.
+ * Use the @apply directive to apply Tailwind utility classes.
+ */
+h1 {
+    @apply font-heading font-bold text-4xl leading-[56px];
+}
+
+h2 {
+    @apply font-heading font-bold text-3xl leading-[44px];
+}
+
+h3 {
+    @apply font-heading font-semibold text-2xl leading-[36px];
+}
+
+h4 {
+    @apply font-heading font-semibold text-xl leading-[28px];
+}
+
+/* ... (your @theme block) ... */
+
+/* ... (your h1, h2, etc., styles) ... */
+
+/* Font Styles using Inter */
+.body-base {
+    @apply font-body text-base font-normal leading-6;
+}
+
+.body-small {
+    @apply font-body text-sm font-normal leading-[22px];
+}
+
+.body-medium {
+    @apply font-body text-base font-medium leading-[26px];
+}
+
+.body-accent {
+    @apply font-body text-base font-normal leading-[26px] italic;
+}
+
+.body-light {
+    @apply font-body text-base leading-[32px] font-light;
+}
+
+
+.nav-menu {
+    @apply font-body text-sm font-bold leading-[26px];
+}
+
+.button-primary {
+    @apply font-body text-base font-bold leading-5;
+}
+
+.footer-label {
+    @apply font-body text-xs font-normal leading-[18px];
+}
+
+.badge-label {
+    @apply font-body text-xs font-bold leading-4;
+}
+.errorlist{
+    color:"#8C2F2F !important",
+}
+/* The rest of your custom CSS can go here */

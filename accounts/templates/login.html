@@ -1,0 +1,63 @@
+{% extends '_base.html' %}
+{% load static %}
+
+{% block main %}
+<section class="flex items-center justify-center min-h-screen">
+  <div class="w-full max-w-md bg-secondary-white rounded-2xl shadow-md p-8">
+    <!-- Title -->
+    <h2 class="text-primary-dark-green text-center text-2xl font-bold">Login</h2>
+    <p class="text-primary-green text-center pb-4">
+      Please enter your credentials to continue
+    </p>
+
+    <!-- Login form -->
+    <form method="post" class="space-y-4">
+      {% csrf_token %}
+      {{ form.non_field_errors }}
+
+      <!-- Username -->
+      <div>
+        <label for="id_username" class="block text-sm font-medium">Email or Phone Number</label>
+        {{ form.username }}
+      </div>
+
+      <!-- Password -->
+      <div>
+        <label for="id_password" class="block text-sm font-medium">Password</label>
+        {{ form.password }}
+      </div>
+
+      <!-- Submit button -->
+      <button type="submit"
+        class="w-full bg-primary-green text-white py-3 rounded-lg hover:bg-success transition">
+        Login
+      </button>
+    </form>
+
+    <!-- Divider -->
+    <div class="flex items-center my-6">
+      <hr class="flex-grow border-primary-light-green">
+      <span class="px-2 text-sm">or</span>
+      <hr class="flex-grow border-primary-light-green">
+    </div>
+
+    <!-- Social logins -->
+    <div class="space-x-2 flex flex-row">
+      <a href="#"
+        class="w-full flex items-center justify-center border border-primary-light-green py-2 rounded-lg hover:bg-primary-light-green hover:text-primary-dark-green hover:font-bold transition">
+        Google
+      </a>
+      <a href="#"
+        class="w-full flex items-center justify-center border border-primary-light-green py-2 rounded-lg hover:bg-primary-light-green hover:text-primary-dark-green hover:font-bold transition">
+        Facebook
+      </a>
+    </div>
+
+    <!-- Register link -->
+    <p class="text-center text-sm mt-6">
+      Don’t have an account? 
+      <a href="{% url 'register' %}" class="text-accent font-medium">Sign up</a>
+    </p>
+  </div>
+</section>
+{% endblock %}

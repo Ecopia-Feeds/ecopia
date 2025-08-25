@@ -1,0 +1,74 @@
+{% extends '_base.html' %}
+{% load static %}
+
+{% block main %}
+<div class="hero w-full bg-[url('/static/assets/hero.png')] bg-cover bg-center h-[560px] px-[96px]">
+    <div class="py-[96px] px-4 w-1/2 text-white max-w-[1000px]">
+        <h1 class="pb-4">
+            Turning Organic Waste into Sustainable Value
+        </h1>
+        <p class="pr-4 pb-[32px]">
+            Empowering agriculture with black soldier fly-based solutions: high-protein feed, organic fertilizer, and zero-waste innovation.
+        </p>
+        <button class="flex items-center body-medium bg-primary-green text-white py-4 px-6 rounded-md">
+            Partner With Us
+        </button>
+    </div>
+</div>
+<section class="bg-secondary-green flex flex-col items-center justify-center">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 px-8 py-8 mt-[-130px] h-[260px] bg-white rounded-lg max-w-[1200px] bg-[url('/static/assets/grass.png')] bg-repeat-x bg-bottom">
+      <!-- Step 1 -->
+      <div class="flex flex-row">
+        <div class="w-32 items-center content-center">
+          <img class="bg-secondary-green rounded-lg p-4" src="{% static 'assets/recycle.png' %}" alt="recycle">
+        </div>
+        <div class="flex flex-col px-8">
+          <h3 class="text-primary-green mb-4">Sustainable Waste Processing</h3>
+          <p class="text-primary-green">We convert organic waste into valuable products using black soldier flies.</p>
+        </div>
+      </div>
+
+      <!-- Step 2 -->
+      <div class="flex flex-row">
+        <div class="w-32 items-center content-center">
+          <img class="bg-secondary-green rounded-lg p-4" src="{% static 'assets/chicken.png' %}" alt="chicken">
+        </div>
+        <div class="flex flex-col px-8 ">
+          <h3 class="text-primary-green mb-4">Insect Based Animal Feed</h3>
+          <p class="text-primary-green">Our feeds  are rich in protein, ideal for poultry, pigs, and fish.</p>
+        </div>
+      </div>
+
+      <!-- Step 3 -->
+      <div class="flex flex-row">
+        <div class="w-32 items-center content-center">
+          <img class="bg-secondary-green rounded-lg p-4" src="{% static 'assets/plant.png' %}" alt="plant">
+        </div>
+        <div class="flex flex-col px-8">
+          <h3 class="text-primary-green mb-4">Organic Frass Fertilizer</h3>
+          <p class="text-primary-green">Nutrient-rich and soil-friendly fertilizer from BSF waste.</p>
+        </div>
+      </div>
+    </div>
+    <div class="flex flex-row max-w-[1200px] h-[560px]  my-12 p-4">
+      <div class="flex-1 flex content-center items-center">
+        <img src="{% static 'assets/about.png' %}" alt="about">
+      </div>
+      <div class="flex-1 flex flex-col justify-center">
+        <h4 class="mb-[24px] text-primary-green">About Us</h4>
+        <h2 class="mb-[32px] text-primary-green"> Reimagining agriculture through nature and innovation </h2>
+        <p class="mb-[32px] text-gray-600 text-justify text-body-light">
+          Ecopia is a biotech-driven sustainability startup focused on circular agriculture. We use black soldier fly technology to recycle organic waste into two powerful products: protein-rich animal feed and organic fertilizer. Our mission is to promote food security, reduce waste, and support regenerative farming across Africa.
+        </p>
+          <button class="flex items-center justify-center body-medium bg-transparent border-1 border-primary-green text-primary-green w-[160px] py-4 px-6 rounded-md">
+            Read More
+        </button>
+      </div>
+    </div>
+
+
+</section>
+<section class="bg-white">
+
+</section>
+{% endblock %}

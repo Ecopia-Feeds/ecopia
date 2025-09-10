@@ -1,11 +1,35 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
+from store.models import Category, Product, Post, NewsletterSubscriber
+from store.forms import NewsletterForm
 
 # Create your views here.
-def HomeView(request):
+def HomeView(request, category_slug=None):
     """
     A general home page with options to login and info.
     """ 
-    return render(request, 'home.html')
+    category = None
+    products = Product.objects.filter(available=True)
+    posts = Post.objects.all()[:3]
+    form = NewsletterForm()
+
+    if request.method == "POST":
+        form = NewsletterForm(request.POST)
+        if form.is_valid():
+            email = form.cleaned_data["email"]
+            NewsletterSubscriber.objects.get_or_create(email=email)
+            messages.success(request, "You have subscribed to our newsletter!")
+            return
+
+    if category_slug:
+        category = get_object_or_404(Category, slug=category_slug)
+        products = products.filter(category=category)
+
+    return render(request, "home.html", {
+        "category": category,
+        "products": products,
+        "posts": posts,
+        "form": form
+    })
 
 
 from django.shortcuts import render, redirect
@@ -77,3 +101,8 @@ class ProfileView(View):
 
     def get(self, request):
         return render(request, "profile.html", {"user": request.user})
+
+class CartView(View):
+    """Handles Cart page"""
+    def get(self, request):
+        return render(request, 'cart.html', {"user": request.user})

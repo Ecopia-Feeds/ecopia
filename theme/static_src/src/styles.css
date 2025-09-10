@@ -32,19 +32,19 @@ body {
  * Use the @apply directive to apply Tailwind utility classes.
  */
 h1 {
-    @apply font-heading font-bold text-4xl leading-[56px];
+    @apply font-heading font-bold text-3xl leading-[48px];
 }
 
 h2 {
-    @apply font-heading font-bold text-3xl leading-[44px];
+    @apply font-heading font-bold text-2xl leading-[40px];
 }
 
 h3 {
-    @apply font-heading font-semibold text-2xl leading-[36px];
+    @apply font-heading font-semibold text-xl leading-[32px];
 }
 
 h4 {
-    @apply font-heading font-semibold text-xl leading-[28px];
+    @apply font-heading font-semibold text-lg leading-[24px];
 }
 
 /* ... (your @theme block) ... */
@@ -53,40 +53,40 @@ h4 {
 
 /* Font Styles using Inter */
 .body-base {
-    @apply font-body text-base font-normal leading-6;
+    @apply font-body text-base font-normal leading-4;
 }
 
 .body-small {
-    @apply font-body text-sm font-normal leading-[22px];
+    @apply font-body text-sm font-normal leading-[16px];
 }
 
 .body-medium {
-    @apply font-body text-base font-medium leading-[26px];
+    @apply font-body text-base font-medium leading-[16px];
 }
 
 .body-accent {
-    @apply font-body text-base font-normal leading-[26px] italic;
+    @apply font-body text-base font-normal leading-[24px] italic;
 }
 
 .body-light {
-    @apply font-body text-base leading-[32px] font-light;
+    @apply font-body text-base leading-[24px] font-light;
 }
 
 
 .nav-menu {
-    @apply font-body text-sm font-bold leading-[26px];
+    @apply font-body text-sm font-bold leading-[24px];
 }
 
 .button-primary {
-    @apply font-body text-base font-bold leading-5;
+    @apply font-body text-base font-bold leading-2;
 }
 
 .footer-label {
-    @apply font-body text-xs font-normal leading-[18px];
+    @apply font-body text-xs font-normal leading-[16px];
 }
 
 .badge-label {
-    @apply font-body text-xs font-bold leading-4;
+    @apply font-body text-xs font-bold leading-2;
 }
 .errorlist{
     color:"#8C2F2F !important",

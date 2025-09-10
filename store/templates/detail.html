@@ -1,0 +1,85 @@
+{% extends "__base.html" %}
+{% load static %}
+
+{% block main %}
+<div class="mx-auto flex flex-row gap-4 px-[100px] py-4">
+    <div class="flex flex-row gap-1 items-center">
+        <a href="{% url 'products:products' %}">
+            <img src="{% static 'assets/home.png' %}"  alt="hom" class="h-[24px] w-[24px]">
+        </a>
+        <img src="{% static 'assets/next.png' %}"  alt="next" class="h-[8px] w-[6px]">
+    </div>
+    <div class="flex flex-row gap-1 items-center">
+        <a href="{% url 'products:product_list_by_category' category.slug%}">
+            {{ category.name}}
+        </a>
+        <img src="{% static 'assets/next.png' %}"  alt="next" class="h-[8px] w-[6px]">
+    </div>
+    <div class="flex flex-row gap-1 items-center">
+        <a href="{{ product.get_absolute_url }}">
+            {{product.name}}
+        </a>
+    </div>
+</div>
+<div class="mx-auto flex flex-col gap-4 px-[100px] py-4">
+    <h3> {{product.name}}</h3>
+    <hr class="border-t border-gray-300 w-full my-4" />
+    <div class="flex flex-row justify-between">
+        <div class="w-1/4 flex flex-row justify-center items-center">
+            <img src="{{product.image.url }}"  alt="hom">
+        </div>
+        <div class="flex flex-col w-2/3">
+            <div class="font-bold text-m">
+                KSH. {{product.price}}
+            </div>
+            <div class="font-thin text-sm mb-8">
+                Tax included. Shipping calculated at checkout.
+            </div>
+            <div>
+                <div class="mb-8">
+                    Status:
+                    {% if product.available %}
+                    <span class="text-primary-dark-green font-bold text-sm">
+                        In Stock 
+                    </span>
+                    {% else %}
+                    <span class="text-error font-bold text-sm">
+                        Out of Stock
+                    </span>
+                    {% endif%}
+                </div>
+                <div class="mb-2">
+                    Quantity
+                </div>
+                <div class="flex items-center space-x-4">
+                    <button class="px-4 py-2 bg-gray-200 rounded-lg">-</button>
+                    <span class="text-lg">1</span>
+                    <button class="px-4 py-2 bg-gray-200 rounded-lg">+</button>
+                </div>
+                <button class="justify-end my-4 bg-primary-green p-4 rounded font-bold text-white w-full mx-auto">
+                    Add to cart
+                </button>
+                <div class="mb-2">
+                    Categories: 
+                    <span class="text-accent font-light text-sm">
+                        {{category.name}}
+                    </span>
+                </div>
+                <div>Tags: 
+                    <span class="text-slate-500 font-light text-sm">Vegetables</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="flex justify-center mt-16 mb-4 border-b border-gray-300">
+        <div class="flex mt-4">
+            <button class="mr-4 px-4 py-2 rounded-3xl font-semibold text-primary-dark-green transparent">
+                Description
+            </button>
+            <button class="px-4 py-2  rounded-3xl text-primary-green bg-transparent">
+                Specification
+            </button>
+        </div>
+    </div>
+</div>
+{% endblock %}
